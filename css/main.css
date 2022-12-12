@@ -10,5 +10,5 @@ body {
 .main p {
   word-break: break-word;
   max-inline-size: auto;
-  text-color: #ffffff;
+  color: #ffffff;
 }
