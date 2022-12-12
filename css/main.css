@@ -3,6 +3,12 @@ body {
 }
 .main {
   margin: 25px 50px 75px;
+  background-color: #b6bbbe;
+}
+.main h1 {
+
+}
+.main p {
   word-break: break-word;
   max-inline-size: auto;
 }
