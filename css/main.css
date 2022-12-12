@@ -2,8 +2,7 @@ body {
   background-color: #181a1b;
 }
 .main {
-  margin: 25px 50px 75px;
-  background-color: #b6bbbe;
+  margin: 12.5px 25px 75px;
 }
 .main h1 {
 
@@ -11,4 +10,5 @@ body {
 .main p {
   word-break: break-word;
   max-inline-size: auto;
+  text-color: #ffffff;
 }
