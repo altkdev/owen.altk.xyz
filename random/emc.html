@@ -1,0 +1,14 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      const urlParams = new URLSearchParams(new URL(window.location.href).search);
+      if(urlParams.get("A") != null){
+        document.cookie="meme="+urlParams.get("A")+"; SameSite=None; Secure";
+      }else{
+        document.write(document.cookie.split('; ').find((row) => row.startsWith('meme='))?.split('=')[1])
+      }
+    </script>
+  </body>
+</html>
