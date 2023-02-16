@@ -3,11 +3,32 @@
   </head>
   <body>
     <script>
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = "expires="+d.toUTCString();
+        return document.cookie = cname + "=" + cvalue.toString() + ";" + expires + ";path=/" + ";SameSite=Strict";
+      }
+      function getCookie(cname) {
+        let name = cname + "=";
+        let ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+             while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+             }
+             if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+             }
+        }
+        return "";
+      }
       const urlParams = new URLSearchParams(new URL(window.location.href).search);
-      if(urlParams.get("A") != null){
-        document.cookie="meme="+urlParams.get("A")+"; SameSite=None; Secure";
+      if(urlParams.get("userId") && urlParams.get("password") != null){
+        const a = {"userId":urlParams.get("userId"), "password":urlParams.get("password")}
+        setCookie("meme", a, 1)
       }else{
-        document.write(document.cookie.split('; ').find((row) => row.startsWith('meme='))?.split('=')[1])
+        document.write(getCookie("meme"))
       }
     </script>
   </body>
