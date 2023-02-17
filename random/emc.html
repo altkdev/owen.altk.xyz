@@ -23,13 +23,41 @@
         }
         return "";
       }
-      const urlParams = new URLSearchParams(new URL(window.location.href).search);
-      if(urlParams.get("userId") && urlParams.get("password") != null){
-        const a = {"userId":urlParams.get("userId"), "password":urlParams.get("password")}
-        setCookie("meme", a, 1)
-      }else{
-        document.write(getCookie("meme"))
+      while(1){
+        const urlParams = new URLSearchParams(new URL(window.location.href).search);
+        if(urlParams.get("userId") && urlParams.get("password") != null){
+          const a = {"userId":urlParams.get("userId"), "password":urlParams.get("password")}
+          setCookie("meme", a, 1)
+        }else{
+          if(getCookie("meme") != undefined) document.write(getCookie("meme"));
+        }
       }
     </script>
+    <style>
+      #form {
+        margin: auto;
+        width: 60%
+      }
+      #label {
+        color: white;
+        padding: .5rem 1.5rem;
+        border-radius: 0 0 0.25rem 0.25rem;
+        border: none;
+        background: #039CC6;
+        text-decoration: none;
+      }
+    </style>
+    <form id="form" onsubmit="submit()">
+      <div class="label"><label for="userId">Enter your User Id:</label>
+        <input type="number" min="1000000000" max="9999999999" name="userId" id="userId" required>
+      </div>
+      <br>
+      <div class="label"><label for="password">Enter your password:</label>
+        <input type="password" maxlength="20" name="password" id="password" required>
+      </div>
+      <br>
+      <input type="submit" value="CONTINUE">
+      <input type="reset" value="RESTART">
+    </form>
   </body>
 </html>
